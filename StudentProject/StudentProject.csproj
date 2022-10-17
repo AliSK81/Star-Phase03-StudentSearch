@@ -5,6 +5,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>StarAcademy.CodeStar.alisk.SearchEngine</PackageId>
+    <Authors>Ali Ebrahimi</Authors>
+    <Company>Star Academy</Company>
   </PropertyGroup>
 
   <ItemGroup>
