@@ -8,24 +8,24 @@ jobs:
     publish:
         runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v3
+        steps:
+            - uses: actions/checkout@v3
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-          dotnet-version: 6.0.*
+            - name: Setup .NET
+              uses: actions/setup-dotnet@v2
+              with:
+                  dotnet-version: 6.0.*
 
-    - name: Get current release version
-      id: version
-      uses: pozetroninc/github-action-get-latest-release@master
-      with:
-          repository: AliSK81/StudentSearch
+            - name: Get current release version
+              id: version
+              uses: pozetroninc/github-action-get-latest-release@master
+              with:
+                  repository: AliSK81/Star-Phase03-StudentSearch
 
-      - name: Build library and generate NuGet Package
-        run: dotnet pack -c Release -o artifacts -p:PackageVersion=${{ steps.version.outputs.release }}
-        working-directory: ${{ github.workspace }}/StudnetProject
+            - name: Build library and generate NuGet Package
+              run: dotnet pack -c Release -o artifacts -p:PackageVersion=${{ steps.version.outputs.release }}
+              working-directory: ${{ github.workspace }}/StudentProject
 
-      - name: Publish NuGet Package
-        run: dotnet nuget push ./**/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+            - name: Publish NuGet Package
+              run: dotnet nuget push **\*.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{secrets.NUGET_API_KEY}}
     
