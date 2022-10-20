@@ -1,4 +1,8 @@
 # Star-Phase03-StudentSearch
+
+[![build](https://github.com/AliSK81/Star-Phase03-StudentSearch/actions/workflows/buildPipeline.yml/badge.svg)](https://github.com/AliSK81/Star-Phase03-StudentSearch/actions/workflows/buildPipeline.yml)
+[![publish](https://github.com/AliSK81/Star-Phase03-StudentSearch/actions/workflows/publishPipeline.yml/badge.svg)](https://github.com/AliSK81/Star-Phase03-StudentSearch/actions/workflows/publishPipeline.yml)
+[![codecov](https://codecov.io/gh/AliSK81/Star-Phase03-StudentSearch/branch/main/graph/badge.svg?token=WJO9M1KTTB)](https://codecov.io/gh/AliSK81/Star-Phase03-StudentSearch)
 ## مقدمه
 
 در این فاز با زبان #C
