@@ -47,6 +47,29 @@ namespace StudentProject
             _searchService = new SearchService(index);
         }
 
+        public IList<string> Search(string query)
+        {
+            var results = new List<string>();
+
+            try
+            {
+                var searchResult = _searchService.Find(new SearchQuery(query));
+
+                foreach (int key in searchResult)
+                {
+                    var resultObj = _searchabales.Where(s => s.GetKey() == key);
+                    results.Add(JsonConvert.SerializeObject(resultObj));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
+            return results;
+        }
+
         public void Run()
         {
             while (true)
@@ -56,19 +79,9 @@ namespace StudentProject
 
                 if (query == "") break;
 
-                try
+                foreach(string result in Search(query))
                 {
-                    var searchResult = _searchService.Find(new SearchQuery(query));
-
-                    foreach (int key in searchResult)
-                    {
-                        var resultObj = _searchabales.Where(s => s.GetKey() == key);
-                        Console.WriteLine(JsonConvert.SerializeObject(resultObj));
-                    }
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine(result);
                 }
             }
         }
