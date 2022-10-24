@@ -1,4 +1,6 @@
 ﻿using StudentProject;
+using System.Reflection;
+using System.Runtime.Versioning;
 
 namespace Main
 {
@@ -6,7 +8,9 @@ namespace Main
     {
         public static void Main(string[] args)
         {
-            SearchEngine.Instance.Run();
+            Processor.Instance.PrintTop3Students();
+
+            Processor.Instance.StartConsoleSearch();
         }
     }
 }

@@ -12,25 +12,25 @@ namespace ServicesTest
         [Fact]
         public void ReadStudentListTest()
         {
-            // JsonReader.Instance.ReadJsonList<Student>(Constants.StudentsPath);
+            // JsonReader.Instance.ReadJsonList<Student>(Settings.StudentsPath);
         }
 
         [Fact]
         public void ReadScoresListTest()
         {
-            // JsonReader.Instance.ReadJsonList<StudentScore>(Constants.ScoresPath);
+            // JsonReader.Instance.ReadJsonList<StudentScore>(Settings.ScoresPath);
         }
 
         [Fact]
         public void StudentsFileNotFoundExeption()
         {
-            Assert.Throws<FileNotFoundException>(() => JsonReader.Instance.ReadJsonList<Student>(Constants.StudentsPath + ".bak"));
+            Assert.Throws<FileNotFoundException>(() => JsonReader.Instance.ReadJsonList<Student>(Settings.StudentsPath + ".bak"));
         }
 
         [Fact]
         public void ScoresFileNotFoundException()
         {
-            Assert.Throws<FileNotFoundException>(() => JsonReader.Instance.ReadJsonList<StudentScore>(Constants.ScoresPath + ".bak"));
+            Assert.Throws<FileNotFoundException>(() => JsonReader.Instance.ReadJsonList<StudentScore>(Settings.ScoresPath + ".bak"));
         }
     }
 

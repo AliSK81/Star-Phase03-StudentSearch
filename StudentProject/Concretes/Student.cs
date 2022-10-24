@@ -1,13 +1,17 @@
 ﻿using StudentProject.Abstracts;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudentProject.Concretes
 {
 
     public class Student : ISearchabale
     {
-        public int StudentNumber { get; }
-        public string FirstName { get; }
-        public string LastName { get; }
+        [Key]
+        public int StudentNumber { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public virtual List<StudentScore> Scores { get; } = new();
 
         public Student(int studentNumber, string firstName, string lastName)
         {

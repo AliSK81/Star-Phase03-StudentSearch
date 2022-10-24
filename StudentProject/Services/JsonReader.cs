@@ -11,7 +11,7 @@ namespace StudentProject.Services
 
         private JsonReader() { }
 
-        public IList<T> ReadJsonList<T>(string path)
+        public List<T> ReadJsonList<T>(string path)
         {
             string json = File.ReadAllText(path);
             var jsonList = JsonConvert.DeserializeObject<List<T>>(json);

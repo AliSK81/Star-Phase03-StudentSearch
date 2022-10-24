@@ -55,7 +55,7 @@ namespace StudentProject.Concretes
         {
             foreach (var searchable in searchables)
             {
-                _index.AddAll(searchable.GetValue().Split(Constants.Delim), searchable.GetKey());
+                _index.AddAll(searchable.GetValue().Split(Settings.Delim), searchable.GetKey());
             }
             return this;
         }

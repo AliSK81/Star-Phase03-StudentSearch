@@ -1,14 +1,15 @@
-﻿using StudentProject.Concretes;
+﻿using StudentProject.Abstracts;
+using StudentProject.Concretes;
 
 namespace StudentProject.Services
 {
     public class SearchService
     {
-        private readonly InvertedIndex index;
+        private readonly InvertedIndex _index;
 
         public SearchService(InvertedIndex index)
         {
-            this.index = index;
+            _index = index;
         }
 
         public HashSet<int> Find(SearchQuery query)
@@ -33,11 +34,11 @@ namespace StudentProject.Services
             {
                 if (searchResult.Count == 0)
                 {
-                    searchResult.UnionWith(index.Get(word));
+                    searchResult.UnionWith(_index.Get(word));
                 }
                 else
                 {
-                    searchResult.IntersectWith(index.Get(word));
+                    searchResult.IntersectWith(_index.Get(word));
                 }
             }
         }
@@ -46,7 +47,7 @@ namespace StudentProject.Services
         {
             foreach (string word in query.AnyOfTheseWords)
             {
-                searchResult.UnionWith(index.Get(word));
+                searchResult.UnionWith(_index.Get(word));
             }
         }
 
@@ -54,7 +55,7 @@ namespace StudentProject.Services
         {
             foreach (string word in query.NoneOfTheseWords)
             {
-                foreach (var docId in index.Get(word))
+                foreach (var docId in _index.Get(word))
                 {
                     searchResult.Remove(docId);
                 }
